@@ -1,0 +1,8 @@
+[package]
+name = "framework_rgbafan"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+framework_lib = { git = "https://github.com/FrameworkComputer/framework-system.git" }
+anyhow = "1.0"
