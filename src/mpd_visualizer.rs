@@ -9,7 +9,13 @@ use framework_lib::chromium_ec::commands::RgbS;
 use rustfft::{Fft, FftPlanner};
 use num_complex::Complex;
 
-use crate::consts::{FFT_SIZE, N_LEDS, FIFO_PATH};
+use crate::consts::{
+    FFT_SIZE,
+    N_LEDS,
+    FIFO_PATH,
+    MPD_QUIET_TIMEOUT
+};
+
 use crate::animations::Animation;
 
 
@@ -90,7 +96,7 @@ impl MpdVisualizer {
             
             // If we have data buffered but not enough for a full FFT yet, 
             // we treat it as silence if no NEW data came in for 1 second.
-            if silence_duration > Duration::from_secs(1) {
+            if silence_duration > Duration::from_secs(MPD_QUIET_TIMEOUT as u64) {
                 // Clear buffer so old audio doesn't flash when music resumes
                 self.sample_buffer.clear();
 

@@ -15,3 +15,4 @@ pub const OFF: RgbS = RgbS{ r: 0, g: 0, b: 0 };
 //pub const SAMPLE_RATE: f32 = 44100.0;
 pub const FFT_SIZE: usize = 1024;
 pub const FIFO_PATH: &str = "/tmp/rgb.fifo";
+pub const MPD_QUIET_TIMEOUT: u8 = 5;

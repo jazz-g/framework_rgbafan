@@ -1,10 +1,10 @@
-# Framework RGB Fan Tool
+# Framework Desktop Fan RGB Animations / MPD Visualizer
 
 ## Overview
 
-This is a simple rust tool to visualize music and display simple
-animations onto the Framework Desktop RGB fan, as this fan does not
-expose an interface in `/sys/class/leds`.
+This is a simple Rust tool for Linux to visualize music and display
+simple animations onto the Framework Desktop RGB fan, as this fan does
+not expose an interface in `/sys/class/leds`.
 
 It's mainly a wrapper + some animation logic for the
 [framework-system](https://github.com/FrameworkComputer/framework-system)
@@ -14,9 +14,12 @@ wanted to change anything seemed like a drag.
 
 ## Installation
 
-First, grab the repository by cloning into it, and going inside and running `cargo build -r`.
+First, grab the repository by cloning into it, and going inside and
+running `cargo build -r`. Note that wherever you do put it, it does
+need to be run as root.
 
-Then, copy the binary in `target/release` over to `/usr/local/bin` or some other location of your choice.
+Then, copy the binary in `target/release` over to `/usr/local/bin` or
+some other location of your choice.
 
 If you want to daemonize it, you might want to write something along the lines of
 
@@ -34,10 +37,11 @@ If you want to daemonize it, you might want to write something along the lines o
     [Install]
     WantedBy=multi-user.target
 
-to `/etc/systemd/system/frmwk-rgb-fan.service`, and run `sudo systemctl daemon-reload ; sudo systemctl enable --now frmwk-rgb-fan.service` 
+to `/etc/systemd/system/frmwk-rgb-fan.service`, and run
+`sudo systemctl daemon-reload ; sudo systemctl enable --now frmwk-rgb-fan.service`
 
 ## Usage
-Since all framework rgb fans are identical, to keep things simple, and
+Since all framework RGB fans are identical, to keep things simple, and
 considering that it's necessary to run as root, I just hardcoded most
 of the configuration into `src/consts.rs`, so change those if you want
 to use this with adjusted settings.
