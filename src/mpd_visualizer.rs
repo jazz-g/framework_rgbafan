@@ -190,7 +190,7 @@ impl MpdVisualizer {
             2 => RgbS { r: 0,   g: 100, b: 255 }, // Low Mid: Cyan
             3 => RgbS { r: 0,   g: 255, b: 0 },   // Mid: Spring Green
             4 => RgbS { r: 255, g: 255, b: 0   }, // High Mid: Yellow
-            5 => RgbS { r: 255, g: 100, b: 0   }, // Presence: Orange
+            5 => RgbS { r: 255, g: 50, b: 0   }, // Presence: Orange
             6 => RgbS { r: 255, g: 0,   b: 0   }, // Treble: Red
             7 => RgbS { r: 255, g: 80, b: 80 },   // Air: Pink
             _ => RgbS { r: 255, g: 255, b: 255 },
