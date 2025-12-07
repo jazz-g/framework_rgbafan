@@ -6,6 +6,7 @@ use std::time::Duration;
 use framework_lib::chromium_ec::commands::RgbS;
 use framework_lib::chromium_ec::{CrosEc, EcResult};
 
+
 // Milliseconds per second
 const UNIT_MS: u16 = 1000;
 const N_LEDS: u8 = 8;
@@ -86,13 +87,14 @@ impl Animation {
                 if *on {
                     for led in leds {
                         *led = OFF;
-                        
-                        if *current_color_index >= 7 {
-                            *current_color_index = 0;
-                        } else {
-                            *current_color_index += 1;
-                        }
                     }
+                    
+                    if (*current_color_index as usize) >= (*colors).len() - 1 {
+                        *current_color_index = 0;
+                    } else {
+                        *current_color_index += 1;
+                    }
+                    
                 } else {
                     let current_color: RgbS = match colors.get_mut(*current_color_index as usize) {
                         Some(color) => *color,
