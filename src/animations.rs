@@ -138,14 +138,11 @@ impl Animation {
                 period,
                 current_rotation,  
             } => {
-                thread::sleep(Duration::from_millis(TICKRATE.into()));
                 Animation::step_smoothspin(leds, current_rotation, colors, *period);
             },
             Animation::Mpd {
                 visualizer
             } => {
-                thread::sleep(Duration::from_millis(TICKRATE.into()));
-
                 visualizer.tick(leds);
             },
         }

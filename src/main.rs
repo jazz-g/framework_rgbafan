@@ -1,5 +1,7 @@
 use std::env;
 use std::num::ParseIntError;
+use std::thread;
+use std::time::Duration;
 
 use framework_lib::chromium_ec::commands::RgbS;
 use framework_lib::chromium_ec::{CrosEc, EcResult};
@@ -8,7 +10,7 @@ mod mpd_visualizer;
 mod animations;
 mod consts;
 
-use consts::{OFF, N_LEDS};
+use consts::{OFF, N_LEDS, TICKRATE};
 use animations::Animation;
 
 
@@ -65,6 +67,7 @@ fn main() -> EcResult<()> {
         if let Err(e) = ec.rgbkbd_set_color(0, leds.to_vec()) {
             eprintln!("Error setting lights: {:?}", e);
         }
+        thread::sleep(Duration::from_millis(TICKRATE.into()));
     }
         
 }
